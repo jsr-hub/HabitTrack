@@ -4,6 +4,7 @@
   "description": "Personal habit tracking website with weekly/monthly analysis",
   "main": "server.js",
   "scripts": {
+    "build": "echo 'No build step required'",
     "start": "node server.js"
   }
 }
