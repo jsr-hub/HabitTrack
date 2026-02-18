@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- AUTH SCREEN -->
+    <div id="auth-screen" class="screen">
+        <div class="auth-container">
+            <div class="logo">
+                <span class="logo-icon">✦</span>
+                <h1>Habit Tracker</h1>
+                <p class="tagline">Build better habits, one day at a time</p>
+            </div>
+            <div class="auth-tabs">
+                <button class="auth-tab active" data-tab="login">Login</button>
+                <button class="auth-tab" data-tab="register">Register</button>
+            </div>
+            <form id="login-form" class="auth-form">
+                <div class="input-group">
+                    <label for="login-username">Username</label>
+                    <input type="text" id="login-username" placeholder="Enter your username" required>
+                </div>
+                <div class="input-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" placeholder="Enter your password" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Login</button>
+            </form>
+            <form id="register-form" class="auth-form hidden">
+                <div class="input-group">
+                    <label for="reg-username">Username</label>
+                    <input type="text" id="reg-username" placeholder="Choose a username" required>
+                </div>
+                <div class="input-group">
+                    <label for="reg-password">Password</label>
+                    <input type="password" id="reg-password" placeholder="Create a password (min 4 chars)" required minlength="4">
+                </div>
+                <div class="input-group">
+                    <label for="reg-confirm">Confirm Password</label>
+                    <input type="password" id="reg-confirm" placeholder="Confirm your password" required minlength="4">
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Create Account</button>
+            </form>
+            <div id="auth-error" class="error-msg hidden"></div>
+        </div>
+    </div>
+
+    <!-- MAIN APP -->
+    <div id="app-screen" class="screen hidden">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-left">
+                <span class="logo-icon-sm">✦</span>
+                <h2>Habit Tracker</h2>
+            </div>
+            <div class="header-right">
+                <span id="welcome-user" class="welcome-text"></span>
+                <button id="logout-btn" class="btn btn-outline btn-sm">Logout</button>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="app-nav">
+            <button class="nav-tab active" data-view="tracker">📋 Daily Tracker</button>
+            <button class="nav-tab" data-view="analysis">📊 Analysis</button>
+            <button class="nav-tab" data-view="manage">⚙️ Manage Habits</button>
+        </nav>
+
+        <!-- TRACKER VIEW -->
+        <main id="tracker-view" class="view">
+            <div class="view-header">
+                <h3>Today's Habits</h3>
+                <div class="date-nav">
+                    <button id="prev-day" class="btn btn-icon">◀</button>
+                    <span id="current-date" class="current-date"></span>
+                    <button id="next-day" class="btn btn-icon">▶</button>
+                </div>
+            </div>
+            <div id="habit-list" class="habit-list">
+                <div class="empty-state">
+                    <p>No habits yet! Go to <strong>Manage Habits</strong> to create your first habit.</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- ANALYSIS VIEW -->
+        <main id="analysis-view" class="view hidden">
+            <div class="view-header">
+                <h3>Habit Analysis</h3>
+                <div class="period-toggle">
+                    <button class="period-btn active" data-period="weekly">Weekly</button>
+                    <button class="period-btn" data-period="monthly">Monthly</button>
+                </div>
+            </div>
+            <div id="analysis-content" class="analysis-content">
+                <div class="empty-state"><p>Loading analysis...</p></div>
+            </div>
+        </main>
+
+        <!-- MANAGE VIEW -->
+        <main id="manage-view" class="view hidden">
+            <div class="view-header">
+                <h3>Manage Habits</h3>
+            </div>
+            <form id="add-habit-form" class="add-habit-form">
+                <input type="text" id="habit-name" placeholder="Enter new habit name..." required>
+                <button type="submit" class="btn btn-primary">+ Add Habit</button>
+            </form>
+            <div id="manage-habit-list" class="manage-list"></div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
