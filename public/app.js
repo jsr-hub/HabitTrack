@@ -1,5 +1,5 @@
 // === API Helper ===
-const API = '';
+const API = 'https://habittrack-kprt.onrender.com';
 
 function getToken() { return localStorage.getItem('habit_token'); }
 function setToken(t) { localStorage.setItem('habit_token', t); }
